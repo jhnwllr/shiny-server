@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<title>opdb search</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/3col.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+
+</style>
+<body class="w3-light-grey">
+  <head>
+    {{ headContent() }}
+  </head>
+
+
+
+<div class="w3-half">
+<h1 class="w3-jumbo"><b>The Odonate Super Tree</b></h1>
+	  
+	  
+	  <p><span class="w3-xlarge">The Odonate "Super" Tree is a large tree of damselfies and dragonflies built from sequences on GenBank.</p> 
+	  
+	  <span class="w3-xlarge">
+	  The tree is comprised 1322 taxa, which is around 21% of known odonates (n = 6400). A total of 759 of these taxa were from the suborder  Zygoptera (damselflies) and a total of 563) from Anisoptera (dragonflies). All 32 known odonate families are represented in this phylogeny.</span>
+	  <p>
+	  
+	  
+	  <p><span class="w3-xlarge">The Tree is meant to be used with the <a href="http://odonatephenotypicdatabase.org/shiny/hype/"><span style="color:#34373c;">O</span>donate <span style="color:#8194a9;">P</span>henotypic <span style="color:#E09E24;">D</span>ata<span style="color:#EE8360;">B</span>ase.</span></a></p>
+	  
+	  <p><span class="w3-xlarge">More information can be found below and in the original article <a href="http://onlinelibrary.wiley.com/doi/10.1111/evo.13302/abstract">"Body size evolution in an old insect order"</a>.</p></span>
+	  
+	  The tree is time calibrated with fossils dowloaded from <a href="https://paleobiodb.org/#/">the Paleobiology Database</a>. We considered taxonomic groups and names found on the <a href="https://www.pugetsound.edu/academics/academic-resources/slater-museum/biodiversity-resources/dragonflies/world-odonata-list2/">World Odonata List</a>. We queried GenBank for each species in the list and then downloaded all of the associated data using the R package seqinr. Annotations were then processed and cleaned of extraneous text to determine the downloaded genetic region. Our phylogeny was constructed using BEAST v1.8.1.
+	  
+	  <p>Two separate time calibrated trees were generated in BEAST for computational reasons (one for Zygoptera and one for Anisoptera) and they were later combined (using the median age of the root of each subtree) into a single tree with divergence time set between the two suborders with fossils.</p>
+	  
+	  <p>The following genetic regions were used in the construction of our trees: tRNA-Val, histone H3, 12S ribosomal RNA, NADH dehydogenase subunit I, tRNA-Leu, cytochrome oxidase II, elongation factor 1 alpha, internal transcribed spacer 2, 5.8S ribosomal RNA, internal transcribed spacer 1, 18S ribosomal RNA, 28S ribosomal RNA, 16S ribosomal RNA, and cytochrome oxidase I.</p> 
+	  
+	  <p>Cleaned genetic regions were then aligned using the R package muscle and in parallel using the R package foreach. The alignments were processed using gblocks, which eliminates poorly aligned positions. This was done using the gblocks function in the R package phyloch. <a href="http://www.robertlanfear.com/partitionfinder/">PartitionFinder</a> was run on each the concatenated alignments to determine the best partitioning scheme for our aligned sequences.</p> 
+
+	  <p>All of the steps above were glued together and automated in R, so it is possible to update the tree as new sequences become available. </p>
+
+</div>
+ 
+<div class="w3-half" style = "background-color: white; padding-bottom:1000px">
+<img class="w3-image" src="images/superTree.jpg" alt="Image 1" style="min-width:500px;" width="500" height="500">  
+
+
+<div style=
+"text-align: center;">
+{{ downloadTree }}
+{{ downloadR }}
+</div>
+
+</div>
+
+
+
+</body>
+
+</html>
