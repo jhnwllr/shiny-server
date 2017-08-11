@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<title>opdb</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/3col.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+
+</style>
+<body style = "background-color: white;">
+  <head>
+    {{ headContent() }}
+  </head>
+
+  
+<div>
+<img class="w3-image" src="images/background2.jpg" alt="Image 1" style="min-width:1500px;" width="1500" height="1000">  
+</div>
+
+<!-- Page Container -->
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <!-- The Grid -->
+
+<div class="w3-row-padding">
+
+
+<div class="w3-third"> <!-- Left Column -->
+ 
+<div class="w3-white w3-text-grey w3-card-4">
+
+<div class="w3-container">
+<h5> Look Up </h5>
+<p> {{ choose_family }} </p>
+<p> {{ choose_genus }} </p>
+<p> {{ choose_species }} </p>
+<p> </p>
+
+</div>
+</div>
+<br> <!-- important page break and div-->
+
+<div class="w3-white w3-text-grey w3-card-4">
+<div class="w3-container">
+<h5> Download </h5>
+{{ downButton }} 
+{{ downVariableDefinitions }}
+</div>
+</div>
+
+</div> <!-- End Left Column -->
+
+
+<div class="w3-twothird"> <!-- Right Column -->
+<div id="pattern" class="pattern">
+<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+
+<h2 class="w3-text-grey w3-padding-16">{{ species }}</h2>
+
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	
+	<h5 class="w3-text-grey w3-padding-16"> Size <i class="fa fa-mars" aria-hidden="true"></i></h2>
+	<div class="col-group"> <!-- 3 Column Right Panel -->		
+	<div class="w3-container">
+	<h5><b> Body Length</b></h5>
+	<p> {{ tbl }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b>Front Wing Length</b></h5>
+	<p> {{ fwl }}  </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b>Hind Wing Length</b></h5>
+	<p> {{ hwl }} </p>
+	</div>
+	</div>
+	</div>
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Size <i class="fa fa-venus" aria-hidden="true"></i></h2>
+	<div class="col-group"> <!-- 3 Column Right Panel -->		
+	<div class="w3-container">
+	<h5><b> Body Length</b></h5>
+	<p> {{ female_tbl }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b>Front Wing Length</b></h5>
+	<p> {{ female_fwl }}  </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b>Hind Wing Length</b></h5>
+	<p> {{ female_hwl }} </p>
+	</div>
+	</div>
+	</div>
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Body Colors <i class="fa fa-mars" aria-hidden="true"></i></h2>
+	<div class="col-group">
+
+	<div  class="w3-container">
+	<h5><b>Body Colors </b></h5>
+	<p> {{ body_colors }} </p>
+	</div>
+
+	<div  class="w3-container">
+	<h5><b>Body Color Type(s)</b></h5>
+	<p> {{ body_colortypes }}  </p>
+	</div>
+
+	<div  class="w3-container">
+	<h5><b>Body Pattern Type(s) </b></h5>
+	<p> {{ body_patterns }} </p>
+	</div>
+	</div>
+	</div>
+	
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Morphisms </h2>
+	
+	<div class="col-group"> <!-- 3 Column Right Panel -->		
+	<div class="w3-container">
+	<h5><b> Strength of Sexual Dimorphism </b></h5>
+	<p> {{ sex_dimorphisms }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b> Polymorphisms by Sex </b></h5>
+	<p> {{ sex_polymorphisms }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b> Polymorphisms by Region </b></h5>
+	<p> {{ geo_polymorphisms }} </p>
+	</div>
+	</div>
+	</div>
+
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Behaviour <i class="fa fa-mars" aria-hidden="true"></i></h2>
+	
+	<div class="col-group"> <!-- 3 Column Right Panel -->
+	<div class="w3-container">
+	<h5><b> Mate Guarding Behaviour </b></h5>
+	<p> {{ mate_guarding }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b> Flight Mode </b></h5>
+	<p> {{ flight_mode }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b> Territoriality </b></h5>
+	<p> {{ territoriality }} </p>
+	</div>
+	</div>
+	</div>
+
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Location and Habitat </h2>
+	
+	<div class="col-group"> <!-- 3 Column Right Panel -->
+	<div class="w3-container">
+	<h5><b> Climate Zones </b></h5>
+	<p> {{ climates }} </p>
+	</div>
+	
+	<div class="w3-container">
+	<h5><b> Continent(s) </b></h5>
+	<p> {{ continents }} </p>
+	</div>
+	
+	<div class="w3-container">
+	<h5><b> Eco Zones </b></h5>
+	<p> {{ ecozones }} </p>
+	</div>
+
+
+	<div class="w3-container">
+	<h5><b> Habitat Openness </b></h5>
+	<p> {{ habitat_openness }} </p>
+	</div>
+
+	<div class="w3-container">
+	<h5><b> Aquatic Habitat </b></h5>
+	<p> {{ aquatic_habitat }} </p>
+	</div>
+	</div>
+	</div>
+
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Wing Pigment <i class="fa fa-mars" aria-hidden="true"></i></h2>
+
+	<div class="col-group"> <!-- 3 Column Right Panel -->	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Amount </b></h5>
+	<p> {{ wing_pigment_extent_discrete }} </p>
+	</div>
+	
+	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Pattern </b></h5>
+	<p> {{ wing_pigment_pattern }} </p>
+	</div>
+	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Symmetry </b></h5>
+	<p> {{ wing_pigment_symmetry }} </p>
+	</div>
+	</div>
+	
+	
+	<div class="col-group"> <!-- 3 Column Right Panel -->	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Sexual Dimorphism </b></h5>
+	<p> {{ wing_pigment_dimorphism }} </p>
+	</div>
+	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Color(s) </b></h5>
+	<p> {{ wing_pigment_color }} </p>
+	</div>
+	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Location on Wing </b></h5>
+	<p> {{ wing_pigment_placement }} </p>
+	</div>
+	</div>
+	
+	<div class="col-group"> <!-- 3 Column Right Panel -->	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Color Type(s) </b></h5>
+	<p> {{ wing_pigment_color_type }} </p>
+	</div>
+	</div>
+	</div>
+	
+	<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+	<h5 class="w3-text-grey w3-padding-16"> Wing Pigment <i class="fa fa-venus" aria-hidden="true"></i></h2>
+
+	<div class="col-group"> <!-- 3 Column Right Panel -->	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Amount </b></h5>
+	<p>  {{ female_wing_pigment_extent_discrete }} </p>
+	</div>
+	
+	
+	<div class="w3-container">
+	<h5><b> Wing Pigment Location on Wing </b></h5>
+	<p> {{ female_wing_pigment_placement }} </p>
+	</div>
+	</div>
+	</div>
+	
+
+	<div class="w3-container">
+	<h5><b> References </b></h5>
+	<p> {{ citations }} </p>
+	</div>
+
+	</div></div></div>
+
+<div class="w3-col"> <!-- Right Column -->
+<div id="pattern" class="pattern">
+<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+
+<!-- The App Section -->
+<div class="w3-padding-64 w3-white">
+  <div class="w3-row-padding">
+    <div class="w3-col l8 m6">
+      <h1 class="w3-jumbo"><b>The Database</b></h1>
+      <h1 class="w3-xxxlarge w3-text-green"><b>What is it?</b></h1>
+      <p><span class="w3-xlarge">The <span style="color:#34373c;">O</span>donate <span style="color:#8194a9;">P</span>henotypic <span style="color:#E09E24;">D</span>ata<span style="color:#EE8360;">B</span>ase is a resource for dragonfly and damselfly phenotypes.  The database consists of a variety of morphological, behavioural, and bio-geographical information collected from various sources.</span></p>
+      <p><span class="w3-xlarge"> The database is not intended for species identification, but for comparative analysis within the group or to be combined with data from other groups. If you would like the use the data for a quick comparative analysis, a good place to start would be to combine the data with the <a href="http://www.odonatephenotypicdatabase.org/shiny/shinyTree/">Odonate "Super"Tree.</a></p>
+	  <p><span class="w3-xlarge">All of the taxonomic names found in the database come from the <a href="https://www.pugetsound.edu/academics/academic-resources/slater-museum/biodiversity-resources/dragonflies/world-odonata-list2/">World Odonata List. </a></span></p>
+	  
+	  <p><span class="w3-xlarge"> The data from the database is free to use. If you would like to contribute the database you can contact us at <b>calopteryxdata@gmail.com</b>.</span><span class="w3-xlarge">The database is a project by <a href="http://www.odonatephenotypicdatabase.org/shiny/JohnWaller/"><b>John Waller</b></a>, <b>Beatriz Willink</b>, <b>Maximilian Tschol</b>, and <b>Erik Svensson</b>.</span></p>	
+	 
+    </div>
+
+		
+	  
+
+</div>
+</div>
+</div>
+
+<div class="w3-padding-64 w3-white">
+  <div class="w3-row-padding">
+    <div class="w3-col l8 m6">
+<h4 class="w3-text-grey w3-padding-16"><b>Publications using the database</b></h4>
+<li class="w3-xlarge">Waller, John T., and Erik I. Svensson. "Body size evolution in an old insect order: No evidence for Cope's Rule in spite of fitness benefits of large size." Evolution (2017).</li>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div> <!-- End Right Column -->
+</div> <!-- End Grid -->
+  
+</div> <!-- End Page Container -->
+
+
+
+
+</body>
+ 
+
+
+</html>
